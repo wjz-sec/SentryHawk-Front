@@ -1,0 +1,7 @@
+{
+  "code": 200,
+  "data": {
+    fileUrl: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+  },
+  "msg": "成功"
+}

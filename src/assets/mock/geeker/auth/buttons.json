@@ -1,0 +1,21 @@
+{
+  "code": 200,
+  "data": function({
+    _req
+  }) {
+    let header = _req.header;
+    if (header['x-access-token'] === 'bqddxxwqmfncffacvbpkuxvwvqrhln') {
+      return {
+        "useProTable": ["add", "batchAdd", "export", "batchDelete", "status"],
+        "authButton": ["add", "edit", "delete", "import", "export"]
+      }
+    }
+    if (header['x-access-token'] === 'unufvdotdqxuzfbdygovfmsbftlvbn') {
+      return {
+        "useProTable": ["add", "batchDelete"],
+        "authButton": ["add", "edit", "delete", "import", "export"]
+      }
+    }
+  },
+  "msg": "成功"
+}

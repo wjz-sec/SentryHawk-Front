@@ -1,0 +1,13 @@
+{
+  "code": 200,
+  "data": [{
+      genderLabel: "男",
+      genderValue: 1,
+    },
+    {
+      genderLabel: "女",
+      genderValue: 2
+    }
+  ],
+  "msg": "成功"
+}

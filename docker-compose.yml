@@ -1,0 +1,18 @@
+services:
+    nginx:
+      image: nginx:latest
+      volumes:
+        - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        - ./dist:/app/dist
+      ports:
+        - "80:80"
+      networks:
+        - frontend
+        - backend  # 添加这个使其能访问后端网络
+
+networks:
+  frontend:
+    name: sentryhawk-front_default
+  backend:
+    name: sentry-hawk_default
+    external: true  # 标记这个网络是外部的

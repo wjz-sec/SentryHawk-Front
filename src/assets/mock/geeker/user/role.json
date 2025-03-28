@@ -1,0 +1,26 @@
+{
+
+  "code": 200,
+  "data": [{
+      label: "全部",
+      value: ""
+    },
+    {
+      label: "超级管理员",
+      value: "1"
+    },
+    {
+      label: "公司CEO",
+      value: "2"
+    },
+    {
+      label: "部门主管",
+      value: "3"
+    },
+    {
+      label: "人事经理",
+      value: "4"
+    }
+  ],
+  "msg": '成功'
+}
