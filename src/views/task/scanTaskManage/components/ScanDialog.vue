@@ -19,8 +19,8 @@
       <div class="switch-row" v-if="scan_form.row!.asset_scan_if">
         <span class="inside_span">fofa 收集</span>
         <el-switch v-model="scan_form.row!.fofa_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
-        <span class="inside_span">hunter 收集</span>
-        <el-switch v-model="scan_form.row!.hunter_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+        <span class="inside_span" style="display: none">hunter 收集</span>
+        <el-switch style="display: none" v-model="scan_form.row!.hunter_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
         <span class="inside_span">quake 收集</span>
         <el-switch v-model="scan_form.row!.quake_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
       </div>
@@ -59,8 +59,8 @@
         <el-switch v-model="scan_form.row!.nuclei_scan_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
         <span class="inside_span">afrog扫描</span>
         <el-switch v-model="scan_form.row!.afrog_scan_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
-        <span class="inside_span">AWVS扫描</span>
-        <el-switch v-model="scan_form.row!.awvs_scan_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+        <span class="inside_span" style="display: none">AWVS扫描</span>
+        <el-switch style="display: none" v-model="scan_form.row!.awvs_scan_if" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
       </div>
       <div>
         <el-button type="primary" @click="handleSubmit" style="margin-top: 20px; width: 400px">保存</el-button>
