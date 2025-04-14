@@ -7,8 +7,21 @@
       </div>
       <div class="dialog_div">
         <span class="inside_span">项目类型</span>
-        <el-select v-model="project_form.row!.project_tag" placeholder="Select" style="width: calc(100% - 100px)">
-          <el-option v-for="tag in tag_list" :key="tag.id" :label="tag.tag" :value="tag.id" />
+        <el-select
+          v-model="project_form.row!.project_tag"
+          filterable
+          allow-create
+          default-first-option
+          placeholder="请选择或输入项目类型"
+          style="width: calc(100% - 100px)"
+        >
+          <el-option v-for="tag in tagList" :key="tag.id" :label="tag.name" :value="tag.id" />
+        </el-select>
+      </div>
+      <div class="dialog_div">
+        <span class="inside_span">所属人员</span>
+        <el-select v-model="project_form.row!.project_user" filterable placeholder="请选择所属人员" style="width: calc(100% - 100px)">
+          <el-option v-for="user in userList" :key="user.id" :label="user.username" :value="user.id" />
         </el-select>
       </div>
       <div style="display: flex; justify-content: center; margin-top: 10px">
@@ -19,16 +32,51 @@
 </template>
 
 <script setup lang="ts" name="OrganizationDialog">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
-import { Project } from "@/api/interface";
+import { Project, User } from "@/api/interface";
+import { getProjectTags } from "@/api/modules/project";
+import { getUserList } from "@/api/modules/user";
 
-let tag_list: Project.ResTag[] = [
-  { id: 1, tag: "安服项目" },
-  { id: 2, tag: "监测项目" },
-  { id: 3, tag: "等保项目" },
-  { id: 4, tag: "临时项目" }
-];
+// 声明响应式数据
+const tagList = ref<Project.ResTag[]>([]);
+
+// 获取项目类型列表
+const getTagList = async () => {
+  console.log("getTagList");
+  try {
+    const { data } = await getProjectTags();
+    tagList.value = data;
+  } catch (error: any) {
+    console.error("获取项目类型失败:", error);
+    ElMessage.error("获取项目类型失败");
+  }
+};
+
+// 组件挂载时获取项目类型
+onMounted(() => {
+  getTagList();
+});
+
+// 声明用户列表响应式数据
+const userList = ref<User.ResUserList[]>([]);
+
+// 获取用户列表
+const getUsersList = async () => {
+  try {
+    const { data } = await getUserList();
+    userList.value = data.list;
+  } catch (error) {
+    console.error("获取用户列表失败:", error);
+    ElMessage.error("获取用户列表失败");
+  }
+};
+
+// 组件挂载时获取数据
+onMounted(() => {
+  getTagList();
+  getUsersList();
+});
 
 interface project_form {
   title: string;

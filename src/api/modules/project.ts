@@ -23,3 +23,16 @@ export const editProject = (params: { id: string }) => {
 export const deleteProject = (params: { id: string[] }) => {
   return http.post(`/project/delete/`, params);
 };
+
+/**
+ * @name 项目类型相关接口
+ */
+// 获取项目类型列表
+export const getProjectTags = () => {
+  return http.get<Project.ResTag[]>(`/project/tag/`);
+};
+
+// 添加项目类型
+export const addProjectTag = (params: { tag: string }) => {
+  return http.post(`/project/tag`, params);
+};

@@ -36,7 +36,7 @@ export const downloadAssetInfo = (params: Asset.ReqassertParams) => {
 
 // 获取资产批量添加模板
 export const exportAssetDemo = (params: Asset.ReqassertParams) => {
-  return http.download(`/api/asset_input/BatchAdd/`, params);
+  return http.download(`/getAssetAddDemo/`, params);
 };
 
 // 获取资产类型

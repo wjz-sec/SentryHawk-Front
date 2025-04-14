@@ -73,7 +73,7 @@ const columns = reactive<ColumnProps<Asset.ResassertList>[]>([
   {
     prop: "asset",
     label: "资产",
-    width: 451,
+    minWidth: 451,
     search: { el: "input" }
   },
   {

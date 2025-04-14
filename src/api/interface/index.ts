@@ -59,16 +59,13 @@ export namespace User {
   export interface ResUserList {
     id: string;
     username: string;
-    gender: number;
+    password: string;
+    phone_num: string;
+    user_group: string;
     user: { detail: { age: number } };
-    idCard: string;
     email: string;
-    address: string;
     createTime: string;
     status: number;
-    avatar: string;
-    photo: any[];
-    children?: ResUserList[];
   }
   export interface ResStatus {
     userLabel: string;
@@ -85,7 +82,7 @@ export namespace User {
   }
   export interface ResRole {
     id: string;
-    name: string;
+    group_name: string;
     children?: ResDepartment[];
   }
 }
@@ -250,21 +247,28 @@ export namespace Project {
     domain_num: string;
     ip_num: string;
     project_tag: string;
+    project_user: string;
   }
   export interface ResProjectList {
     id: string;
     project_name: string;
     project_tag: string;
+    project_user: string;
   }
 
   export interface ResTag {
     id: number;
-    tag: string;
+    name: string;
   }
 
   export interface ResProject {
     name: string;
     id: string;
+  }
+
+  export interface ResUser {
+    id: number;
+    username: string;
   }
 
   export interface ResAddAsset {

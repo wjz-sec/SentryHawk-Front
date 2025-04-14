@@ -33,30 +33,23 @@ import { getprojectList, deleteProject, editProject, addProject } from "@/api/mo
 // ProTable 实例
 const proTable = ref<ProTableInstance>();
 
-// 静态数据,如果变化需要同步修改此处
-const genderType: Project.ResTag[] = [
-  { id: 1, tag: "安服项目" },
-  { id: 2, tag: "监测项目" },
-  { id: 3, tag: "等保项目" },
-  { id: 4, tag: "临时项目" }
-];
 // 表格配置项
 const columns = reactive<ColumnProps<Project.ResProjectList>[]>([
   { type: "selection", width: 50 },
   {
     prop: "project_name",
     label: "项目名称",
-    width: 282,
+    minWidth: 282,
     search: { el: "input" }
   },
   {
     prop: "project_tag",
     label: "项目类型",
     width: 160,
-    enum: genderType,
     search: { el: "select", props: { filterable: true } },
-    fieldNames: { label: "tag", value: "id" }
+    fieldNames: { label: "name", value: "id" }
   },
+  { prop: "project_user_name", label: "所属人员", width: 170 },
   { prop: "url_num", label: "URL资产总数", width: 170 },
   { prop: "domain_num", label: "Domain资产总数", width: 170 },
   { prop: "ip_num", label: "IP资产总数", width: 170 },
