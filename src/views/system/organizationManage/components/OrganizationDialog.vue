@@ -15,7 +15,7 @@
           placeholder="请选择或输入项目类型"
           style="width: calc(100% - 100px)"
         >
-          <el-option v-for="tag in tagList" :key="tag.id" :label="tag.name" :value="tag.id" />
+          <el-option v-for="tag in tagList" :key="tag.id" :label="tag.name" :value="tag.name" />
         </el-select>
       </div>
       <div class="dialog_div">
